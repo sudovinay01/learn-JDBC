@@ -6,6 +6,7 @@ package _00_data;
 public class ConnectionData {
 
 	private ConnectionData() {
+		throw new IllegalStateException("Utility class");
 	}
 
 	private static final String PROTOCOL = "jdbc:datadirect:mysql";

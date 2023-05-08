@@ -22,7 +22,7 @@ public class _03_DriverManageURIProperties {
 	 * @return the connection
 	 * @throws SQLException the SQL exception
 	 */
-	private static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		Properties properties = new Properties() ;
 		properties.put("user", _00_data.ConnectionData.getUserName());
 		properties.put("password", _00_data.ConnectionData.getPassword());

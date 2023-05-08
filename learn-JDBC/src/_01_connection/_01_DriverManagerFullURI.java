@@ -26,7 +26,7 @@ public class _01_DriverManagerFullURI {
 	 * @return the connection
 	 * @throws SQLException the SQL exception
 	 */
-	private static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(_00_data.ConnectionData.getFullURI());
 	}
 

@@ -21,7 +21,7 @@ public class _02_DriverManageURI {
 	 * @return the connection
 	 * @throws SQLException the SQL exception
 	 */
-	private static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(_00_data.ConnectionData.getBaseURI(), 
 										   _00_data.ConnectionData.getUserName(),
 										   _00_data.ConnectionData.getPassword());
