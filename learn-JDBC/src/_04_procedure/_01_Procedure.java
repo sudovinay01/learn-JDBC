@@ -32,7 +32,7 @@ public class _01_Procedure {
 
 	public static void createProcedure(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()) {
-			statement.execute("DROP PROCEDURE IF EXISTS my_procedure");
+			statement.executeUpdate("DROP PROCEDURE IF EXISTS my_procedure");
 			String myProcedure = "CREATE PROCEDURE my_procedure() " +
 								 "BEGIN "+
 								 "SELECT * FROM TEST_TABLE WHERE name LIKE '%B%';"+
@@ -48,7 +48,7 @@ public class _01_Procedure {
 		try(CallableStatement callableStatement = connection.prepareCall(myProcedure)){
 			ResultSet resultSet = callableStatement.executeQuery();
 			System.out.println("========================================================================");
-			System.out.println("Table valuse containing letter 'B' are retrived through procedure call..");
+			System.out.println("Table values containing letter 'B' are retrived through procedure call..");
 			System.out.println("========================================================================");
 			while(resultSet.next()){
 				System.out.println(resultSet.getString("name"));
