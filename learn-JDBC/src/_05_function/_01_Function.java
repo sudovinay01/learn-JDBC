@@ -1,6 +1,5 @@
 package _05_function;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,7 +52,7 @@ public class _01_Function {
 			preparedStatement.setNString(1, searchLetters);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			System.out.println("=================================================================================");
-			System.out.println("Count of table values containing letters '"+searchLetters+"' is retrived through fuuncftion call..");
+			System.out.println("Count of table values containing letter(s) '"+searchLetters+"' is retrived through fuuncftion call..");
 			System.out.println("=================================================================================");
 			while(resultSet.next()){
 				System.out.println(resultSet.getString(1));
@@ -62,7 +61,7 @@ public class _01_Function {
 			preparedStatement.setNString(1, searchLetters);
 			resultSet = preparedStatement.executeQuery();
 			System.out.println("=================================================================================");
-			System.out.println("Count of table values containing letters '"+searchLetters+"' is retrived through fuuncftion call..");
+			System.out.println("Count of table values containing letter(s) '"+searchLetters+"' is retrived through fuuncftion call..");
 			System.out.println("=================================================================================");
 			while(resultSet.next()){
 				System.out.println(resultSet.getString(1));
