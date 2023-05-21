@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import _00_data.templete;
 import _03_prepare_statement._01_Create;
 import _03_prepare_statement._02_Read;
 import _03_prepare_statement._05_BatchUpdate;
