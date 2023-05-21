@@ -27,6 +27,14 @@ public class _03_Tables {
 		System.out.println("====================================");
 		_00_data.ResultSetUtils.printResultSet(rs);
 		System.out.println("====================================");
+		System.out.println("getMaxColumnsInTable() => "+dbmd.getMaxColumnsInTable());
+		System.out.println("getMaxTableNameLength() => "+dbmd.getMaxTableNameLength());
+		System.out.println("getMaxTablesInSelect() => "+dbmd.getMaxTablesInSelect());
+		System.out.println("allTablesAreSelectable() => "+dbmd.allTablesAreSelectable());
+		System.out.println("getTableTypes() => ");
+		rs = dbmd.getTableTypes();
+		_00_data.ResultSetUtils.printResultSet(rs);
+		System.out.println("usesLocalFilePerTable() => "+dbmd.usesLocalFilePerTable());
 	}
 
 }
