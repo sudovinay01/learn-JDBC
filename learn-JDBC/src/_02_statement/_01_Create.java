@@ -20,11 +20,11 @@ public class _01_Create {
 	public static void createTable(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()) {
 			statement.executeUpdate("DROP TABLE IF EXISTS TEST_TABLE");
-			statement.executeUpdate("CREATE TABLE TEST_TABLE" + "(NAME VARCHAR(255))");
+			statement.executeUpdate("CREATE TABLE TEST_TABLE" + "(NAME VARCHAR(255), ID  INTEGER)");
 			System.out.println("Created successfully -> TEST_TABLE");
-			statement.executeUpdate("INSERT INTO TEST_TABLE VALUES ('JAVA')");
-			statement.executeUpdate("INSERT INTO TEST_TABLE VALUES ('SQL')");
-			statement.executeUpdate("INSERT INTO TEST_TABLE VALUES ('DRIVER')");
+			statement.executeUpdate("INSERT INTO TEST_TABLE VALUES ('JAVA', 101)");
+			statement.executeUpdate("INSERT INTO TEST_TABLE VALUES ('SQL', 102)");
+			statement.executeUpdate("INSERT INTO TEST_TABLE VALUES ('DRIVER', 103)");
 			System.out.println("Data inserted into -> TEST_TABLE");
 		}
 	}
@@ -32,7 +32,7 @@ public class _01_Create {
 	public static void deleteTable(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()) {
 			statement.executeUpdate("DROP TABLE IF EXISTS TEST_TABLE");
-			System.out.println("TEST_TABLE droped if exists.");
+			System.out.println("TEST_TABLE dropped if exists.");
 		}
 	}
 }

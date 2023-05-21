@@ -5,10 +5,10 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class _03_Tables {
+public class _04_Tables {
 
 	public static void main(String[] args) throws SQLException {
-		System.out.println(_03_Tables.class.getName());
+		System.out.println(_04_Tables.class.getName());
 		System.out.println("Description : Using getMetaData to get details about Tables.");
 		System.out.println("Connenecting to Database..");	
 		try (Connection connection = _01_connection._01_DriverManagerFullURI.getConnection()) {

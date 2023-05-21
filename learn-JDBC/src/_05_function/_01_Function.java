@@ -14,7 +14,7 @@ public class _01_Function {
 	public static void main(String[] args) throws SQLException {
 		System.out.println(_01_Function.class.getName());
 		System.out.println("Description : Creating and calling function.");
-		System.out.println("Connenecting to Database..");	
+		System.out.println("Connenecting to Database..");
 		try (Connection connection = _01_connection._01_DriverManagerFullURI.getConnection()) {
 			System.out.println("Connection established? " + connection.isValid(0));
 			_01_Create.createTable(connection);
@@ -22,50 +22,55 @@ public class _01_Function {
 			_02_Read.readTable(connection);
 			createFunction(connection);
 			callFunction(connection);
-			try (Statement statement = connection.createStatement()){
-				statement.executeUpdate("DROP TABLE TEST_TABLE");
-				statement.executeUpdate("DROP FUNCTION IF EXISTS my_function");
-			}
+			_02_statement._01_Create.deleteTable(connection);
+			dropFunction(connection);
 		}
 	}
 
 	public static void createFunction(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()) {
 			statement.executeUpdate("DROP FUNCTION IF EXISTS my_function");
-			String myFunction = "CREATE FUNCTION my_function(myname VARCHAR(255)) RETURNS int DETERMINISTIC " +
-			         "BEGIN "+
-					 "DECLARE counts INT;"+
-			         "SELECT COUNT(*) INTO counts FROM TEST_TABLE WHERE name LIKE CONCAT('%', myname, '%');"+
-					 "RETURN counts;"+
-			         "END";
-			System.out.println("Function : "+myFunction);
+			String myFunction = "CREATE FUNCTION my_function(myname VARCHAR(255)) RETURNS int DETERMINISTIC " + "BEGIN "
+					+ "DECLARE counts INT;"
+					+ "SELECT COUNT(*) INTO counts FROM TEST_TABLE WHERE name LIKE CONCAT('%', myname, '%');"
+					+ "RETURN counts;" + "END";
+			System.out.println("Function : " + myFunction);
 			statement.executeUpdate(myFunction);
 			System.out.println("Function created ...");
 		}
 	}
 
+	public static void dropFunction(Connection connection) throws SQLException {
+		try (Statement statement = connection.createStatement()) {
+			statement.executeUpdate("DROP FUNCTION IF EXISTS my_function");
+			System.out.println("Function my_function is dropped if exist...");
+		}
+	}
+
 	public static void callFunction(Connection connection) throws SQLException {
 		String myProcedure = "SELECT my_function(?)";
-		try(PreparedStatement preparedStatement = connection.prepareStatement(myProcedure)){
+		try (PreparedStatement preparedStatement = connection.prepareStatement(myProcedure)) {
 			String searchLetters = "B";
 			preparedStatement.setNString(1, searchLetters);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			System.out.println("=================================================================================");
-			System.out.println("Count of table values containing letter(s) '"+searchLetters+"' is retrived through fuuncftion call..");
+			System.out.println("Count of table values containing letter(s) '" + searchLetters
+					+ "' is retrived through fuuncftion call..");
 			System.out.println("=================================================================================");
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				System.out.println(resultSet.getString(1));
 			}
 			searchLetters = "My";
 			preparedStatement.setNString(1, searchLetters);
 			resultSet = preparedStatement.executeQuery();
 			System.out.println("=================================================================================");
-			System.out.println("Count of table values containing letter(s) '"+searchLetters+"' is retrived through fuuncftion call..");
+			System.out.println("Count of table values containing letter(s) '" + searchLetters
+					+ "' is retrived through fuuncftion call..");
 			System.out.println("=================================================================================");
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				System.out.println(resultSet.getString(1));
 			}
 		}
 	}
-	
+
 }
