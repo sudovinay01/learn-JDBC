@@ -13,7 +13,7 @@ import _03_prepare_statement._05_BatchUpdate;
 
 public class _01_Procedure {
 	public static void main(String[] args) throws SQLException {
-		System.out.println(templete.class.getName());
+		System.out.println(_01_Procedure.class.getName());
 		System.out.println("Description : Using CallableStatement to call stored procedure.");
 		System.out.println("Connenecting to Database..");	
 		try (Connection connection = _01_connection._01_DriverManagerFullURI.getConnection()) {
