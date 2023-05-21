@@ -9,7 +9,7 @@ public class _03_Catalogs {
 
 	public static void main(String[] args) throws SQLException {
 		System.out.println(_03_Catalogs.class.getName());
-		System.out.println("Description : Using getMetaData to get catalogs.");
+		System.out.println("Description : Using getMetaData to get details about catalogs.");
 		System.out.println("Connenecting to Database..");	
 		try (Connection connection = _01_connection._01_DriverManagerFullURI.getConnection()) {
 			System.out.println("Connection established? " + connection.isValid(0));
