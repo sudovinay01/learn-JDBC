@@ -12,7 +12,7 @@ public class ResultSetUtils {
 	private static String tableValueSeperator = "|";
 
 	public static void printResultSet(ResultSet rs) throws SQLException {
-		int columnCount = rs.getMetaData().getColumnCount(), rowCount, maxValueLength = 0;
+		int columnCount = rs.getMetaData().getColumnCount(), maxValueLength = 0;
 		String[] columnNames = new String[columnCount];
 		List<String[]> data = new ArrayList<String[]>();
 
