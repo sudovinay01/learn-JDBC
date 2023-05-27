@@ -28,6 +28,13 @@ public class _01_Procedure {
 			}
 		}
 	}
+	
+	public static void dropProcedure(Connection connection) throws SQLException {
+		try (Statement statement = connection.createStatement()) {
+			statement.executeUpdate("DROP PROCEDURE IF EXISTS my_procedure");
+			System.out.println("Procedure my_procedure droped if exist ...");
+		}
+	}
 
 	public static void createProcedure(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()) {
