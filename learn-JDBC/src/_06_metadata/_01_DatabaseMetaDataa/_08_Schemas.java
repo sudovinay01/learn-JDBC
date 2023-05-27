@@ -13,11 +13,11 @@ public class _08_Schemas {
 		System.out.println("Connenecting to Database..");	
 		try (Connection connection = _01_connection._01_DriverManagerFullURI.getConnection()) {
 			System.out.println("Connection established? " + connection.isValid(0));
-			printCatalogDetails(connection);
+			printSchemaDetails(connection);
 		}
 	}
 
-	public static void printCatalogDetails(Connection connection) throws SQLException {
+	public static void printSchemaDetails(Connection connection) throws SQLException {
 		DatabaseMetaData dbmd = connection.getMetaData();
 		ResultSet rs = dbmd.getSchemas();
 		System.out.println("====================================");
