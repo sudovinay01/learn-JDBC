@@ -16,13 +16,14 @@ public class _05_Columns {
 			_02_statement._01_Create.createTable(connection);
 			_04_procedure._01_Procedure.createProcedure(connection);
 			_05_function._01_Function.createFunction(connection);
-			printTableDetails(connection);
+			printCloumnsDetails(connection);
 			_02_statement._01_Create.deleteTable(connection);
+			_04_procedure._01_Procedure.dropProcedure(connection);
 			_05_function._01_Function.dropFunction(connection);
 		}
 	}
 
-	public static void printTableDetails(Connection connection) throws SQLException {
+	public static void printCloumnsDetails(Connection connection) throws SQLException {
 		DatabaseMetaData dbmd = connection.getMetaData();
 		ResultSet rs = dbmd.getColumns(null, null, null, null);
 		System.out.println("====================================");
