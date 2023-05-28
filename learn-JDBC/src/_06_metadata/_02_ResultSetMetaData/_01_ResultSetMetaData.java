@@ -22,7 +22,7 @@ public class _01_ResultSetMetaData {
 
 	public static void printDetails(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()){
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM employees");;
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM employees");
 			_00_data.ResultSetUtils.printResultSet(resultSet);
 			ResultSetMetaData rsmd = resultSet.getMetaData();
 			System.out.println("===================================");
