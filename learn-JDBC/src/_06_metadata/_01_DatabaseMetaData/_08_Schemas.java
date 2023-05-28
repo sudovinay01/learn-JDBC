@@ -1,4 +1,4 @@
-package _06_metadata._01_DatabaseMetaDataa;
+package _06_metadata._01_DatabaseMetaData;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
