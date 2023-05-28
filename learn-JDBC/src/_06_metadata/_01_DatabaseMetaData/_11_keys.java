@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class _11_keys {
 
 	public static void main(String[] args)
-			throws SQLException, IllegalArgumentException, IllegalAccessException, SecurityException {
+			throws SQLException, IllegalArgumentException, SecurityException {
 		System.out.println(_11_keys.class.getName());
 		System.out.println("Description : Using getMetaData to get keys details.");
 		System.out.println("Connenecting to Database..");
@@ -22,7 +22,7 @@ public class _11_keys {
 	}
 
 	public static void printDetails(Connection connection)
-			throws SQLException, IllegalArgumentException, IllegalAccessException, SecurityException {
+			throws SQLException, IllegalArgumentException, SecurityException {
 		DatabaseMetaData dbmd = connection.getMetaData();
 
 		ResultSet rs = dbmd.getImportedKeys(null, null, "departments");
