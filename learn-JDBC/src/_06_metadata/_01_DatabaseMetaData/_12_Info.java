@@ -5,10 +5,10 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class _12_typeInfo {
+public class _12_Info {
 
 	public static void main(String[] args) throws SQLException {
-		System.out.println(_12_typeInfo.class.getName());
+		System.out.println(_12_Info.class.getName());
 		System.out.println("Description : Using getMetaData to get typeInfo.");
 		System.out.println("Connenecting to Database..");
 		try (Connection connection = _01_connection._01_DriverManagerFullURI.getConnection()) {
@@ -27,5 +27,27 @@ public class _12_typeInfo {
 		System.out.println("====================================");
 		_00_data.ResultSetUtils.printResultSet(rs);
 		System.out.println("====================================");
+		
+		rs = dbmd.getClientInfoProperties();
+		System.out.println("====================================");
+		System.out.println("getClientInfoProperties");
+		System.out.println("====================================");
+		_00_data.ResultSetUtils.printResultSet(rs);
+		System.out.println("====================================");
+		
+		rs = dbmd.getTableTypes();
+		System.out.println("====================================");
+		System.out.println("getTableTypes");
+		System.out.println("====================================");
+		_00_data.ResultSetUtils.printResultSet(rs);
+		System.out.println("====================================");
+		
+		rs = dbmd.getSuperTables(null, null, "departments");
+		System.out.println("====================================");
+		System.out.println("getSuperTables");
+		System.out.println("====================================");
+		_00_data.ResultSetUtils.printResultSet(rs);
+		System.out.println("====================================");
+		
 	}
 }
