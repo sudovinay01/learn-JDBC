@@ -53,6 +53,19 @@ public class _11_keys {
 		_00_data.ResultSetUtils.printResultSet(rs);
 		System.out.println("====================================");
 
+		rs = dbmd.getCrossReference("jdbc", null, "employees", "jdbc", null, "departments");
+		System.out.println("====================================");
+		System.out.println("getCrossReference");
+		System.out.println("====================================");
+		_00_data.ResultSetUtils.printResultSet(rs);
+		System.out.println("====================================");
+		
+		rs = dbmd.getIndexInfo(null, null, "employees", false, false);
+		System.out.println("====================================");
+		System.out.println("getIndexInfo");
+		System.out.println("====================================");
+		_00_data.ResultSetUtils.printResultSet(rs);
+		System.out.println("====================================");		
 	}
 	
 	public static void createTableWithKeys(Connection connection) throws SQLException {
