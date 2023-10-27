@@ -26,9 +26,9 @@ public class _05_BatchUpdate {
 	public static void batchOperation(Connection connection) throws SQLException {
 		try (Statement statement = connection.createStatement()){
 			connection.setAutoCommit(false);
-			statement.addBatch("INSERT INTO TEST_TABLE VALUES ('BATCH_INSERT 1')");
-			statement.addBatch("INSERT INTO TEST_TABLE VALUES ('BATCH_INSERT 2')");
-			statement.addBatch("INSERT INTO TEST_TABLE VALUES ('BATCH_INSERT 3')");
+			statement.addBatch("INSERT INTO TEST_TABLE VALUES ('BATCH_INSERT 1',123)");
+			statement.addBatch("INSERT INTO TEST_TABLE VALUES ('BATCH_INSERT 2',124)");
+			statement.addBatch("INSERT INTO TEST_TABLE VALUES ('BATCH_INSERT 3',125)");
 			statement.addBatch("UPDATE TEST_TABLE SET name = 'MySQL' WHERE name = 'SQL'");
 			statement.addBatch("UPDATE TEST_TABLE SET name = 'JDBC DRIVER' WHERE name = 'DRIVER'");
 			statement.executeBatch();			
